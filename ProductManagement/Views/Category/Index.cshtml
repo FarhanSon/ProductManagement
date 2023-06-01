@@ -1,0 +1,42 @@
+﻿@model CategoryInfoModel 
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Category</h3>
+<a asp-action="Add"  class="my-4 btn btn-primary">Add Product</a>
+  @if (Model != null)
+{
+    if (Model.CategoriesList.Count > 0)
+    {
+      <div class="my-2">
+        <table class="table table-bordered" >  
+            <thead>
+                <tr>
+                     <th>SN</th>
+                    <th>Product</th>
+                    <th>Prize</th>
+                    <th>Created</th>
+                    <th>Action</th>
+                </tr>                  
+            </thead>              
+            <tbody>
+                @foreach (var item in Model.CategoriesList)
+                {
+                    <tr>
+                         <td>@item.Category_Id</td>
+                        <td>@item.CategoryTitle</td>
+                        <td>@item.CategoryPrize</td>
+                        <td>@item.CreationDate</td>
+                        <td>                             
+                                <a asp-action="Edit" asp-route-id="@item.Category_Id" class="btn btn-primary" ><i class="bi bi-pencil-square"></i></a>
+                            <a asp-action="Details" asp-route-id="@item.Category_Id" class="btn btn-info" ><i class="bi bi-ticket-detailed"></i></a>
+                                <a asp-action="Delete" asp-route-id="@item.Category_Id" class="btn btn-danger" ><i class="bi bi-x-lg"></i></a>
+                         </td>                           
+                    </tr>
+                }
+            </tbody>
+        </table>
+      </div>
+    }
+}

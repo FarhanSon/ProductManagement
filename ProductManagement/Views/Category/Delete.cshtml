@@ -1,0 +1,33 @@
+﻿@model CategoryInfo
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h4>Delete Product</h4>
+
+<form asp-action="Delete">
+    <div class="container">
+        <input type="hidden" asp-for="Category_Id" />
+        <div class="row mb-3">
+            <div class="col-md-3">Title</div>
+            <div class="col-md-9">
+                <input asp-for="CategoryTitle" class="form-control" readonly />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3">Prize</div>
+            <div class="col-md-9">
+                <input asp-for="CategoryPrize" class="form-control" readonly />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+                <button type="Submit" class="btn btn-danger">Delete</button>
+                <a asp-action="index" class="btn btn-primary">Back to HomePage</a>
+            </div>
+        </div>
+    </div>
+</form>
+
